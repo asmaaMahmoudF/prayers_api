@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import { useForkRef } from "@mui/material";
 import "moment/dist/locale/ar-dz";
 moment.locale("ar");
+
 export default function MainContent() {
 	// STATES
 	const [nextPrayerIndex, setNextPrayerIndex] = useState(2);
@@ -27,7 +28,7 @@ export default function MainContent() {
 	const [remainingTime, setRemainingTime] = useState("");
 
 	const [selectedCity, setSelectedCity] = useState({
-		displayName: "مكة المكرمة",
+		displayName: "Macca",
 		apiName: "Makkah al Mukarramah",
 	});
 
@@ -35,25 +36,29 @@ export default function MainContent() {
 
 	const avilableCities = [
 		{
-			displayName: "مكة المكرمة",
+			displayName: "Makkah",
 			apiName: "Makkah al Mukarramah",
 		},
 		{
-			displayName: "الرياض",
+			displayName: "Al-Riyadh",
 			apiName: "Riyadh",
 		},
 		{
-			displayName: "الدمام",
+			displayName: "Al-Dammam",
 			apiName: "Dammam",
+		},
+    {
+			displayName: "Al-Qaherah",
+			apiName: "Cairo",
 		},
 	];
 
 	const prayersArray = [
-		{ key: "Fajr", displayName: "الفجر" },
-		{ key: "Dhuhr", displayName: "الظهر" },
-		{ key: "Asr", displayName: "العصر" },
-		{ key: "Sunset", displayName: "المغرب" },
-		{ key: "Isha", displayName: "العشاء" },
+		{ key: "Fajr", displayName: "Fajr" },
+		{ key: "Dhuhr", displayName: "Dhuhr" },
+		{ key: "Asr", displayName: "Asr" },
+		{ key: "Sunset", displayName: "Sunset" },
+		{ key: "Isha", displayName: "Isha" },
 	];
 	const getTimings = async () => {
 		console.log("calling the api");
@@ -153,57 +158,63 @@ export default function MainContent() {
 
 	return (
 		<>
-			{/* TOP ROW */}
-			<Grid container>
-				<Grid xs={6}>
-					<div>
-						<h2>{today}</h2>
-						<h1>{selectedCity.displayName}</h1>
-					</div>
-				</Grid>
-
-				<Grid xs={6}>
-					<div>
-						<h2>
-							متبقي حتى صلاة{" "}
-							{prayersArray[nextPrayerIndex].displayName}
-						</h2>
-						<h1>{remainingTime}</h1>
-					</div>
-				</Grid>
-			</Grid>
-			{/*== TOP ROW ==*/}
-
-			<Divider style={{ borderColor: "white", opacity: "0.1" }} />
+	{/* Grid container */}
+  <Grid 
+          container
+          style={{
+            height: "60%", // Full viewport height
+          }}
+          spacing={30} // Spacing between Grid items
+    >
+     {/* First Grid Item */}
+	 <Grid item xs={4} style={{marginLeft: "40px", margin:"30px 30px " }}>
+        <div style={{ fontFamily: "Arial,sans-serif", fontSize: "16px" }}>
+          <h2 style={{ fontWeight: "200px" }}>{today}</h2>
+          <h1 style={{ fontWeight: "200px" }}>{selectedCity.displayName}</h1>
+		  {/* <Divider style={{ borderColor: "white",opacity:0.1 }} /> */}
+        </div>
+      </Grid>
+      {/* Second Grid Item */}
+      <Grid item xs={4} style={{ margin:"30px 30px"}}>
+        <div style={{ fontFamily: "Arial, sans-serif", fontSize: "16px" }}>
+          <h2 style={{ fontWeight: "200px" }}>Upcoming Prayer {" "}
+          {prayersArray[nextPrayerIndex].displayName}</h2>
+          <h1 style={{ fontWeight: "200px" }}>{remainingTime}</h1>
+		  {/* <Divider style={{ borderColor: "white", opacity:0.1 }} /> */}
+        </div>
+      </Grid>
+    </Grid>
+      <Divider style={{ borderColor: "white",opacity:0.1 }} />
 
 			{/* PRAYERS CARDS */}
 			<Stack
 				direction="row"
 				justifyContent={"space-around"}
-				style={{ marginTop: "50px" }}
+        alignItems={'center'}
+				style={{ marginTop: "5vh" }}
 			>
-				<Prayer
-					name="الفجر"
+        <Prayer   style= {{fontWeight: "200px"}}
+					name="Fajr"
 					time={timings.Fajr}
 					image="https://cdn-cm.freepik.com/resources/5c64457a-0002-4567-8594-79b428dc3890.jpg?token=exp=1737602692~hmac=caff2bd0a2df6caa3bc04dc4c97d93bace1655c66be5b6d14bf9065340713623"
 				/>
 				<Prayer
-					name="الظهر"
+					name="Dhuhr"
 					time={timings.Dhuhr}
 					image="https://cdn-cm.freepik.com/resources/477b4b7f-0c8b-46ed-9e6a-a2f84f84b38e.jpg?token=exp=1737602696~hmac=034ddae45c56287e44728b83060baac1c7a8f032cbb62a77149edced90c3c61f"
 				/>
 				<Prayer
-					name="العصر"
+					name="Asr"
 					time={timings.Asr}
 					image="https://cdn-cm.freepik.com/resources/c2f8ab7d-5510-4b6f-8b9a-6417fc82f15c.jpg?token=exp=1737602690~hmac=e70f3069f15316e08186dffc12cebfc45a2351af491e461cb7e330df4a65a35e"
 				/>
 				<Prayer
-					name="المغرب"
+					name="Maghrib"
 					time={timings.Sunset}
 					image="https://cdn-cm.freepik.com/resources/45029b30-8ea2-43ac-bcfc-8e576bf2053f.jpg?token=exp=1737602699~hmac=15cf5f4c5c20c4ac9001bb5b656aba1d1a22cba5052c0d86b8e9803a0a0ce379"
 				/>
 				<Prayer
-					name="العشاء"
+					name="Isha"
 					time={timings.Isha}
 					image="https://cdn-cm.freepik.com/resources/a8c21b31-706e-4107-aec8-65621b21b89f.jpg?token=exp=1737602687~hmac=3d93bdea2dcd0f6a9893d02ff29f8307600557306ba720f4993eedc82aa6ec0a"
 				/>
@@ -213,12 +224,12 @@ export default function MainContent() {
 			{/* SELECT CITY */}
 			<Stack
 				direction="row"
-				justifyContent={"center"}
+				justifyContent={"space-around"}
 				style={{ marginTop: "40px" }}
 			>
 				<FormControl style={{ width: "20%" }}>
 					<InputLabel id="demo-simple-select-label">
-						<span style={{ color: "white" }}>المدينة</span>
+						<span style={{ color: "white" }}>City</span>
 					</InputLabel>
 					<Select
 						style={{ color: "white" }}

@@ -14,7 +14,6 @@ function App() {
 			<div
 				style={{
 					display: "flex",
-					justifyContent: "center",
 					width: "100vw",
 				}}
 			>
