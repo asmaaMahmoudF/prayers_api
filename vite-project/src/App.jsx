@@ -48,7 +48,7 @@ const formatTimes = (time) => {
 			<div className="container">
 				<div className="top_sec">
 					<div className="city">
-						<h3>City </h3>
+						<h3>Cities of Egypt </h3>
 						<select name="" id="" onChange={(e) => setCity(e.target.value)}>
 							{cities.map((city_Obj) => (
 								<option key={city_Obj.value} value={city_Obj.value}>
