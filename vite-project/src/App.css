@@ -1,4 +1,4 @@
-
+/* /* 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
 
 html {
@@ -48,4 +48,90 @@ html {
 
 .MuiSvgIcon-root {
 	color: white !important;
-}
+} */
+
+/* General Styling */
+/* 
+html {
+	direction: ltr;
+	font-family: "IBM Plex Sans Arabic", sans-serif !important;
+	color: #ffffff;
+	background-color: #2c3e50;
+  }
+  
+  body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+  h1, h2 {
+	font-weight: 600;
+  }
+  
+  h2 {
+	font-size: 1.8rem;
+  }
+  
+  h1 {
+	font-size: 2.4rem;
+  }
+  
+  button {
+	padding: 10px 20px;
+	background-color: #3498db;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+  }
+  
+  button:hover {
+	background-color: #2980b9;
+  }
+  
+  .card {
+	background-color: #34495e;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	color: white;
+  }
+  
+  .card img {
+	max-width: 100%;
+	border-radius: 8px;
+  }
+  
+  .MuiOutlinedInput-root {
+	color: white;
+  }
+  
+  .MuiSvgIcon-root {
+	color: white !important;
+  }
+  
+  /* Grid Styling */
+  /* .grid {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+  }
+
+  .MuiOutlinedInput-notchedOutline{
+	border-color: white !important;
+  }
+  .MuiSvgIcon-root{
+	color: white !important;
+  }
+  .MuiOutlinedInput-notchedOutline{
+	border-color: white !important;
+  }
+  .MuiSvgIcon-root{
+	color: white !important;
+  }
+    */
